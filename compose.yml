@@ -1,0 +1,6 @@
+services:
+  kiyori:
+    image: ghcr.io/newtox/kiyori:latest
+    container_name: kiyori
+    restart: unless-stopped
+    env_file: .env

@@ -1,0 +1,24 @@
+{
+  "name": "kiyori",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Kiyori, a small roleplay bot that points to Toxbot.",
+  "main": "dist/index.js",
+  "author": "Newtox",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "export-guilds": "node dist/export-guilds.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
