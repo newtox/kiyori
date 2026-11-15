@@ -1,6 +1,6 @@
 # Kiyori
 
-Kiyori is a small Discord bot for anime roleplay GIFs. Most of her old features now live in [Shiori](https://github.com/newtox/Shiori), and `/about` points servers there.
+Kiyori is a small Discord bot for anime roleplay GIFs. Most of her old features now live in [Shiori](https://github.com/newtox/shiori), and `/about` points servers there.
 
 ## Commands
 
