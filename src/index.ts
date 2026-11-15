@@ -16,7 +16,7 @@ import {
 import { Action, actions, commandText, t } from "./i18n";
 
 const token = process.env.TOKEN;
-const toxbotUrl = process.env.TOXBOT_URL || "https://top.gg/bot/561253410591211520";
+const shioriUrl = process.env.SHIORI_URL || "https://top.gg/bot/561253410591211520";
 
 if (!token) {
   console.error("TOKEN is missing");
@@ -61,9 +61,9 @@ const commands = [
     .setIntegrationTypes(ApplicationIntegrationType.GuildInstall)
 ];
 
-function toxbotButton(locale: string) {
+function shioriButton(locale: string) {
   return new ActionRowBuilder<ButtonBuilder>().addComponents(
-    new ButtonBuilder().setStyle(ButtonStyle.Link).setLabel(t(locale).invite).setURL(toxbotUrl)
+    new ButtonBuilder().setStyle(ButtonStyle.Link).setLabel(t(locale).invite).setURL(shioriUrl)
   );
 }
 
@@ -110,7 +110,7 @@ async function handleRoleplay(interaction: ChatInputCommandInteraction) {
   await interaction.editReply({
     content: target.bot ? "" : target.toString(),
     embeds: [embed],
-    components: [toxbotButton(interaction.locale)],
+    components: [shioriButton(interaction.locale)],
     allowedMentions: { users: target.bot ? [] : [target.id] }
   });
 }
@@ -121,7 +121,7 @@ async function handleAbout(interaction: ChatInputCommandInteraction) {
     .setThumbnail(interaction.client.user.displayAvatarURL({ size: 256 }))
     .setDescription(t(interaction.locale).about);
 
-  await interaction.reply({ embeds: [embed], components: [toxbotButton(interaction.locale)] });
+  await interaction.reply({ embeds: [embed], components: [shioriButton(interaction.locale)] });
 }
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });

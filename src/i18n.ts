@@ -19,8 +19,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "$target, you've been kissed by $author!",
       slap: "$target, you've been slapped by $author!"
     },
-    about: "Hi, I'm Kiyori! Most of my features now live in **Toxbot**, together with a lot of new ones.\nI'm still around for hugs and pats with `/roleplay`.",
-    invite: "Invite Toxbot",
+    about: "Hi, I'm Kiyori! Most of my features now live with **Shiori**, together with a lot of new ones.\nI'm still around for hugs and pats with `/roleplay`.",
+    invite: "Invite Shiori",
     error: "I couldn't load an image right now. Please try again in a moment."
   },
   de: {
@@ -31,8 +31,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "$target, du wurdest von $author geküsst!",
       slap: "$target, du wurdest von $author geohrfeigt!"
     },
-    about: "Hi, ich bin Kiyori! Die meisten meiner Funktionen stecken jetzt in **Toxbot**, zusammen mit vielen neuen.\nFür Umarmungen und Streicheleinheiten mit `/roleplay` bin ich aber weiterhin da.",
-    invite: "Toxbot einladen",
+    about: "Hi, ich bin Kiyori! Die meisten meiner Funktionen stecken jetzt bei **Shiori**, zusammen mit vielen neuen.\nFür Umarmungen und Streicheleinheiten mit `/roleplay` bin ich aber weiterhin da.",
+    invite: "Shiori einladen",
     error: "Ich konnte gerade kein Bild laden. Versuch es gleich noch einmal."
   },
   fr: {
@@ -43,8 +43,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "$target, $author t'embrasse !",
       slap: "$target, $author te gifle !"
     },
-    about: "Salut, je suis Kiyori ! La plupart de mes fonctionnalités se trouvent désormais dans **Toxbot**, avec plein de nouveautés.\nJe reste là pour les câlins et les caresses avec `/roleplay`.",
-    invite: "Inviter Toxbot",
+    about: "Salut, je suis Kiyori ! La plupart de mes fonctionnalités se trouvent désormais chez **Shiori**, avec plein de nouveautés.\nJe reste là pour les câlins et les caresses avec `/roleplay`.",
+    invite: "Inviter Shiori",
     error: "Je n'ai pas pu charger d'image. Réessaie dans un instant."
   },
   es: {
@@ -55,8 +55,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "¡$target, $author te ha besado!",
       slap: "¡$target, $author te ha dado una bofetada!"
     },
-    about: "¡Hola, soy Kiyori! La mayoría de mis funciones ahora están en **Toxbot**, junto con muchas novedades.\nSigo aquí para abrazos y caricias con `/roleplay`.",
-    invite: "Invitar a Toxbot",
+    about: "¡Hola, soy Kiyori! La mayoría de mis funciones ahora las tiene **Shiori**, junto con muchas novedades.\nSigo aquí para abrazos y caricias con `/roleplay`.",
+    invite: "Invitar a Shiori",
     error: "No he podido cargar una imagen. Inténtalo de nuevo en un momento."
   },
   ru: {
@@ -67,8 +67,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "$target, вас поцеловал(а) $author!",
       slap: "$target, вы получили пощёчину от $author!"
     },
-    about: "Привет, я Kiyori! Большинство моих функций теперь в **Toxbot**, вместе с множеством новых.\nДля объятий и поглаживаний с `/roleplay` я по-прежнему здесь.",
-    invite: "Пригласить Toxbot",
+    about: "Привет, я Kiyori! Большинство моих функций теперь у **Shiori**, вместе с множеством новых.\nДля объятий и поглаживаний с `/roleplay` я по-прежнему здесь.",
+    invite: "Пригласить Shiori",
     error: "Не удалось загрузить картинку. Попробуйте ещё раз чуть позже."
   },
   ja: {
@@ -79,8 +79,8 @@ const strings: Record<Lang, Strings> = {
       kiss: "$authorさんが$targetさんにキスしました！",
       slap: "$authorさんが$targetさんにビンタしました！"
     },
-    about: "こんにちは、キヨリです！私の機能のほとんどは、たくさんの新機能と一緒に **Toxbot** に引っ越しました。\n`/roleplay` でのハグやなでなでは、これからも私にお任せください。",
-    invite: "Toxbotを招待",
+    about: "こんにちは、キヨリです！私の機能のほとんどは、たくさんの新機能と一緒に **Shiori** に引っ越しました。\n`/roleplay` でのハグやなでなでは、これからも私にお任せください。",
+    invite: "Shioriを招待",
     error: "画像を読み込めませんでした。少し待ってからもう一度お試しください。"
   }
 };
@@ -132,14 +132,14 @@ export const commandText = {
     }
   },
   about: {
-    description: "What happened to Kiyori, and where to find Toxbot.",
+    description: "What happened to Kiyori, and where to find Shiori.",
     descriptionLocalizations: {
-      de: "Was aus Kiyori geworden ist und wo du Toxbot findest.",
-      fr: "Ce qu'est devenue Kiyori et où trouver Toxbot.",
-      "es-ES": "Qué pasó con Kiyori y dónde encontrar a Toxbot.",
-      "es-419": "Qué pasó con Kiyori y dónde encontrar a Toxbot.",
-      ru: "Что случилось с Kiyori и где найти Toxbot.",
-      ja: "キヨリのこれからと、Toxbotの紹介。"
+      de: "Was aus Kiyori geworden ist und wo du Shiori findest.",
+      fr: "Ce qu'est devenue Kiyori et où trouver Shiori.",
+      "es-ES": "Qué pasó con Kiyori y dónde encontrar a Shiori.",
+      "es-419": "Qué pasó con Kiyori y dónde encontrar a Shiori.",
+      ru: "Что случилось с Kiyori и где найти Shiori.",
+      ja: "キヨリのこれからと、Shioriの紹介。"
     }
   }
 };

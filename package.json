@@ -2,7 +2,7 @@
   "name": "kiyori",
   "version": "2.0.0",
   "private": true,
-  "description": "Kiyori, a small roleplay bot that points to Toxbot.",
+  "description": "Kiyori, a small roleplay bot that points to Shiori.",
   "main": "dist/index.js",
   "author": "Newtox",
   "license": "MIT",
