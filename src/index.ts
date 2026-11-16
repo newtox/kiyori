@@ -17,6 +17,7 @@ import { Action, actions, commandText, t } from "./i18n";
 
 const token = process.env.TOKEN;
 const shioriUrl = process.env.SHIORI_URL || "https://top.gg/bot/561253410591211520";
+const logChannelId = process.env.LOG_CHANNEL ?? "1288846653704376462";
 
 if (!token) {
   console.error("TOKEN is missing");
@@ -126,6 +127,30 @@ async function handleAbout(interaction: ChatInputCommandInteraction) {
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+async function logCommand(interaction: ChatInputCommandInteraction) {
+  if (!logChannelId) return;
+  try {
+    const channel = await interaction.client.channels.fetch(logChannelId);
+    if (!channel?.isSendable()) return;
+    const user = interaction.user;
+    const name = user.globalName && user.globalName !== user.username ? `${user.globalName} (${user.username})` : user.username;
+    const action = interaction.options.getString("action");
+    const command = action ? `${interaction.commandName} ${action}` : interaction.commandName;
+    const place = interaction.guild ? ` on ${interaction.guild.name}` : "";
+    await channel.send({
+      embeds: [
+        new EmbedBuilder()
+          .setColor(Colors.Blurple)
+          .setDescription(`${name} (${user.id}) executed **${command}**${place}.`)
+          .setTimestamp()
+      ],
+      allowedMentions: { parse: [] }
+    });
+  } catch (error) {
+    console.error("Command log failed", error);
+  }
+}
+
 client.once(Events.ClientReady, async readyClient => {
   console.log(`Logged in as ${readyClient.user.tag} on ${readyClient.guilds.cache.size} servers`);
   readyClient.user.setPresence({
@@ -142,6 +167,7 @@ client.once(Events.ClientReady, async readyClient => {
 
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
+  void logCommand(interaction);
   try {
     if (interaction.commandName === "roleplay") await handleRoleplay(interaction);
     else if (interaction.commandName === "about") await handleAbout(interaction);

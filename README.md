@@ -24,6 +24,7 @@ docker compose up -d
 | --- | --- |
 | `TOKEN` | Bot token from the Discord Developer Portal |
 | `SHIORI_URL` | Link behind the invite button, defaults to Shiori's Top.gg page |
+| `LOG_CHANNEL` | Channel that gets a message for every command, empty to turn it off |
 
 The commands are registered globally whenever the bot starts.
 
