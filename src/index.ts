@@ -127,29 +127,38 @@ async function handleAbout(interaction: ChatInputCommandInteraction) {
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-async function logCommand(interaction: ChatInputCommandInteraction) {
+async function sendLog(color: number, text: string) {
   if (!logChannelId) return;
   try {
-    const channel = await interaction.client.channels.fetch(logChannelId);
+    const channel = await client.channels.fetch(logChannelId);
     if (!channel?.isSendable()) return;
-    const user = interaction.user;
-    const name = user.globalName && user.globalName !== user.username ? `${user.globalName} (${user.username})` : user.username;
-    const action = interaction.options.getString("action");
-    const command = action ? `${interaction.commandName} ${action}` : interaction.commandName;
-    const place = interaction.guild ? ` on ${interaction.guild.name}` : "";
     await channel.send({
-      embeds: [
-        new EmbedBuilder()
-          .setColor(Colors.Blurple)
-          .setDescription(`${name} (${user.id}) executed **${command}**${place}.`)
-          .setTimestamp()
-      ],
+      embeds: [new EmbedBuilder().setColor(color).setDescription(text).setTimestamp()],
       allowedMentions: { parse: [] }
     });
   } catch (error) {
-    console.error("Command log failed", error);
+    console.error("Log failed", error);
   }
 }
+
+function logCommand(interaction: ChatInputCommandInteraction) {
+  const user = interaction.user;
+  const name = user.globalName && user.globalName !== user.username ? `${user.globalName} (${user.username})` : user.username;
+  const action = interaction.options.getString("action");
+  const command = action ? `${interaction.commandName} ${action}` : interaction.commandName;
+  const place = interaction.guild ? ` on ${interaction.guild.name}` : "";
+  return sendLog(0x7289da, `${name} (${user.id}) executed **${command}**${place}.`);
+}
+
+client.on(Events.GuildCreate, guild => {
+  void sendLog(0x57f287, `Joined Server: ${guild.name} which has ${guild.memberCount} members.`);
+});
+
+client.on(Events.GuildDelete, guild => {
+  if (!guild.available) return;
+  const members = guild.memberCount ? ` which had ${guild.memberCount} members` : "";
+  void sendLog(0xed4245, `Left Server: ${guild.name ?? guild.id}${members}.`);
+});
 
 client.once(Events.ClientReady, async readyClient => {
   console.log(`Logged in as ${readyClient.user.tag} on ${readyClient.guilds.cache.size} servers`);
